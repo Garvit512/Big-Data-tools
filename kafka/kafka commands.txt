@@ -1,0 +1,17 @@
+1-run zookeeper
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+2-run Kafka broker
+bin/kafka-server-start.sh config/server.properties
+
+3-list of topics
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+4-Creating a Kafka Topic
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1   --partitions 1 --topic Hello-Kafka
+
+5- Start Producer to Send Messages
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Hello-Kafka
+
+6- start Consumer to receive Messages
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Hello-Kafka --from-beginningtopic.sh
